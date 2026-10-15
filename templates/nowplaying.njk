@@ -1,0 +1,42 @@
+<div class="jnp {{ config.fontSize }}" style="--jnp-accent: {{ config.accentColor }}; --jnp-card-bg: {{ config.backgroundColor }}; --jnp-playing: {{ config.playingColor }}; --jnp-paused: {{ config.pausedColor }}; --jnp-stopped: {{ config.stoppedColor }}; --jnp-title: {{ config.titleFontSize }}; --jnp-font-size: {{ config.textFontSize }}; --jnp-poster-width: {{ config.posterWidth }};">
+  {% if error %}<div class="jnp-error">{{ errorText }}</div>{% endif %}
+  {% if not loaded %}<div class="dimmed">{{ 'LOADING' | translate }}</div>{% endif %}
+  {% for s in sessions %}
+  <div class="jnp-card jnp-{{ s.kind }} jnp-{{ s.state }}" data-session="{{ s.id }}">
+    <div class="jnp-main">
+      {% if config.showPoster %}
+      <div class="jnp-poster jnp-poster-{{ s.kind }}">
+        {% if s.posterUrl %}<img src="{{ s.posterUrl }}" alt="">{% endif %}
+        {% if config.showTranscode and s.transcoding %}<span class="jnp-transcode" title="{{ 'TRANSCODING' | translate }}">
+          <span class="fa-stack fa-2x"><i class="fa-solid fa-gears fa-stack-1x"></i><i class="fa-solid fa-arrows-rotate fa-stack-2x"></i></span></span>{% endif %}
+      </div>
+      {% endif %}
+      <div class="jnp-info">
+        <div class="jnp-title">{{ s.title }}</div>
+        {% if s.artist %}<div class="jnp-subtitle jnp-artist"><i class="fa-solid fa-user" title="{{ 'ARTIST' | translate }}"></i> {{ s.artist }}</div>{% endif %}
+        {% if s.album %}<div class="jnp-subtitle jnp-album"><i class="fa-solid fa-compact-disc" title="{{ 'ALBUM' | translate }}"></i> {{ s.album }}</div>{% endif %}
+        {% if s.subtitle %}<div class="jnp-subtitle">{{ s.subtitle }}</div>{% endif %}
+        {% if config.showUserAvatar or config.showUserName %}
+        <div class="jnp-user">
+          {% if config.showUserAvatar %}<span class="jnp-avatar"><span class="jnp-initials">{{ s.initials }}</span>{% if s.avatarUrl %}<img src="{{ s.avatarUrl }}" alt="" onerror="this.remove()">{% endif %}</span>{% endif %}
+          {% if config.showUserName %}<span>{{ s.displayName }}</span>{% endif %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="jnp-status">
+        {% if config.showStatusIcon %}<span class="jnp-status-icon jnp-{{ s.state }}"><i class="fa-solid fa-{{ 'play' if s.state == 'playing' else ('pause' if s.state == 'paused' else 'stop') }}" title="{{ ('STATE_' + s.state | upper) | translate }}"></i></span>{% endif %}
+        {% if config.showLocationIcon %}<span class="jnp-location-icon jnp-{{ 'remote' if s.isRemote else 'local' }}"><i class="fa-solid fa-{{ 'network-wired' if s.isRemote else 'house' }}" title="{{ ('LOCATION_REMOTE' if s.isRemote else 'LOCATION_LOCAL') | translate }}"></i></span>{% endif %}
+        {% if config.showDeviceIcon %}<span class="jnp-device-icon jnp-{{ s.deviceKind }}"><i class="fa-solid fa-{{ {'browser':'globe','tv':'tv','phone':'mobile','tablet':'tablet','computer':'computer'}[s.deviceKind] }}" title="{{ s.deviceName }}"></i></span>{% endif %}
+        {% if config.showDeviceName and s.deviceName %}<span class="jnp-device">{{ s.deviceName }}</span>{% endif %}
+      </div>
+    </div>
+    {% if config.showProgressBar and s.durationSeconds %}
+    <div class="jnp-progress">
+      <span class="jnp-position">{{ s.positionText }}</span>
+      <div class="jnp-bar"><div class="jnp-bar-fill" style="width: {{ s.percent }}%"></div></div>
+      <span class="jnp-duration">{{ s.durationText }}</span>
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>

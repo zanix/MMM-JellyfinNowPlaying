@@ -1,0 +1,182 @@
+.MMM-JellyfinNowPlaying {
+  --jnp-accent: #00a4dc;
+  --jnp-bar-bg: rgba(255, 255, 255, 0.2);
+  --jnp-bar-fill: var(--jnp-accent);
+  --jnp-card-bg: rgba(255, 255, 255, 0.06);
+  --jnp-error: #e5534b;
+  --jnp-font-size: 0.75em;
+  --jnp-paused: #f0b429;
+  --jnp-playing: #3fb950;
+  --jnp-poster-bg: #222222;
+  --jnp-poster-width: 3.2em;
+  --jnp-stopped: #e5534b;
+  --jnp-title: 1em;
+  --jnp-transcode: #e5534b;
+}
+.MMM-JellyfinNowPlaying .jnp {
+  min-width: 320px;
+  text-align: left;
+}
+.MMM-JellyfinNowPlaying .jnp-error {
+  color: var(--jnp-error);
+  font-size: var(--jnp-font-size);
+}
+.MMM-JellyfinNowPlaying .jnp-card {
+  background: var(--jnp-card-bg);
+  border-left: 0.15em solid var(--jnp-accent);
+  border-radius: 0.3em;
+  padding: 0.4em;
+  margin-bottom: 8px;
+}
+.MMM-JellyfinNowPlaying .jnp-card.jnp-playing {
+  border-left-color: var(--jnp-playing);
+}
+.MMM-JellyfinNowPlaying .jnp-card.jnp-paused {
+  border-left-color: var(--jnp-paused);
+  opacity: 0.8;
+}
+.MMM-JellyfinNowPlaying .jnp-card.jnp-stopped {
+  border-left-color: var(--jnp-stopped);
+  opacity: 0.45;
+}
+.MMM-JellyfinNowPlaying .jnp-main {
+  align-items: stretch;
+  display: flex;
+  gap: 10px;
+}
+.MMM-JellyfinNowPlaying .jnp-poster {
+  align-self: flex-start;
+  aspect-ratio: 2 / 3;
+  background: var(--jnp-poster-bg);
+  border-radius: 4px;
+  flex: 0 0 var(--jnp-poster-width);
+  overflow: hidden;
+  position: relative;
+  width: var(--jnp-poster-width);
+}
+.MMM-JellyfinNowPlaying .jnp-transcode {
+  bottom: 0.2em;
+  color: var(--jnp-accent);
+  font-size: 0.25em;
+  position: absolute;
+  right: 0.2em;
+  text-shadow: 0 0 0.4em rgba(0, 0, 0, 0.75);
+}
+.MMM-JellyfinNowPlaying .jnp-transcode .fa-stack-2x {
+  color: var(--jnp-transcode);
+}
+.MMM-JellyfinNowPlaying .jnp-poster-music {
+  aspect-ratio: 1 / 1;
+  flex-basis: calc(var(--jnp-poster-width) * 1.5);
+  width: calc(var(--jnp-poster-width) * 1.5);
+}
+.MMM-JellyfinNowPlaying .jnp-poster img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+.MMM-JellyfinNowPlaying .jnp-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.2em;
+  justify-content: center;
+  min-width: 0;
+}
+.MMM-JellyfinNowPlaying .jnp-title {
+  font-size: var(--jnp-title);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.MMM-JellyfinNowPlaying .jnp-subtitle {
+  font-size: var(--jnp-font-size);
+  opacity: 0.75;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.MMM-JellyfinNowPlaying .jnp-subtitle .fa-solid {
+  text-align: center;
+  width: 1.25em;
+}
+.MMM-JellyfinNowPlaying .jnp-user {
+  align-items: center;
+  color: var(--jnp-accent);
+  display: flex;
+  font-size: var(--jnp-font-size);
+  gap: 0.5em;
+}
+.MMM-JellyfinNowPlaying .jnp-avatar {
+  border-radius: 50%;
+  display: inline-block;
+  flex: 0 0 auto;
+  height: 1.8em;
+  overflow: hidden;
+  position: relative;
+  width: 1.8em;
+}
+.MMM-JellyfinNowPlaying .jnp-initials {
+  align-items: center;
+  background: color-mix(in srgb, var(--jnp-accent) 35%, transparent);
+  border-radius: 50%;
+  border: 1px solid var(--jnp-accent);
+  box-sizing: border-box;
+  display: flex;
+  font-size: 0.9em;
+  font-weight: bold;
+  height: 100%;
+  justify-content: center;
+  line-height: 1;
+  width: 100%;
+}
+.MMM-JellyfinNowPlaying .jnp-avatar img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+.MMM-JellyfinNowPlaying .jnp-status {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+  gap: 0.2em;
+  justify-content: center;
+  width: calc(1em + 8px);
+}
+.MMM-JellyfinNowPlaying .jnp-status-icon.jnp-playing {
+  color: var(--jnp-playing);
+}
+.MMM-JellyfinNowPlaying .jnp-status-icon.jnp-paused {
+  color: var(--jnp-paused);
+}
+.MMM-JellyfinNowPlaying .jnp-status-icon.jnp-stopped {
+  color: var(--jnp-stopped);
+}
+.MMM-JellyfinNowPlaying .jnp-device {
+  font-size: 0.6em;
+  opacity: 0.6;
+}
+.MMM-JellyfinNowPlaying .jnp-progress {
+  align-items: center;
+  display: flex;
+  font-size: 0.7em;
+  gap: 0.5em;
+  margin-top: 0.5em;
+  opacity: 0.85;
+}
+.MMM-JellyfinNowPlaying .jnp-bar {
+  background: var(--jnp-bar-bg);
+  border-radius: 2px;
+  flex: 1;
+  height: 0.3em;
+  overflow: hidden;
+}
+.MMM-JellyfinNowPlaying .jnp-bar-fill {
+  background: var(--jnp-bar-fill);
+  height: 100%;
+}

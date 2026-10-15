@@ -1,0 +1,16 @@
+{
+  "LOADING": "Loading…",
+  "ERROR_AUTH": "Jellyfin: invalid credentials",
+  "ERROR_NETWORK": "Jellyfin: server unreachable",
+  "ERROR_SERVER": "Jellyfin: server error",
+  "ERROR_NO_CREDENTIALS": "Jellyfin: no credentials configured",
+  "ERROR_INVALID_CONFIG": "Jellyfin: invalid configuration, check the log",
+  "STATE_PLAYING": "Playing",
+  "STATE_PAUSED": "Paused",
+  "STATE_STOPPED": "Stopped",
+  "LOCATION_LOCAL": "Local",
+  "LOCATION_REMOTE": "Remote",
+  "TRANSCODING": "Transcoding",
+  "ARTIST": "Artist",
+  "ALBUM": "Album"
+}

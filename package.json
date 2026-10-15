@@ -1,0 +1,77 @@
+{
+  "name": "mmm-jellyfinnowplaying",
+  "version": "1.0.0",
+  "description": "A now-playing module for MagicMirror² powered by Jellyfin.",
+  "keywords": [
+    "MagicMirror",
+    "Jellyfin",
+    "media",
+    "video",
+    "now playing"
+  ],
+  "homepage": "https://github.com/zanix/MMM-JellyfinNowPlaying#readme",
+  "bugs": {
+    "url": "https://github.com/zanix/MMM-JellyfinNowPlaying/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zanix/MMM-JellyfinNowPlaying.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Joshua Clark",
+    "url": "https://github.com/zanix"
+  },
+  "contributors": [
+    {
+      "name": "Contributers to zanix/MMM-JellyfinNowPlaying",
+      "url": "https://github.com/zanix/MMM-JellyfinNowPlaying/graphs/contributors"
+    }
+  ],
+  "main": "MMM-JellyfinNowPlaying.js",
+  "type": "commonjs",
+  "scripts": {
+    "check-updates": "npx npm-check-updates",
+    "lint": "eslint && prettier . --check",
+    "lint:fix": "eslint --fix && prettier . --write",
+    "prepare": "simple-git-hooks || true",
+    "release": "commit-and-tag-version --config ./changelog.config.js",
+    "test": "node --test"
+  },
+  "allowScripts": {
+    "simple-git-hooks@2.14.0": true,
+    "unrs-resolver@1.12.2": true
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*": [
+      "eslint --fix",
+      "prettier --write --ignore-unknown"
+    ]
+  },
+  "dependencies": {
+    "@jellyfin/sdk": "^1.0.2",
+    "axios": "^1.21.1",
+    "ws": "^8.23.0"
+  },
+  "devDependencies": {
+    "@eslint/css": "^2.0.1",
+    "@eslint/js": "^10.0.1",
+    "@eslint/json": "^2.1.1",
+    "@eslint/markdown": "^8.0.3",
+    "@stylistic/eslint-plugin": "^6.0.1",
+    "commit-and-tag-version": "^13.3.0",
+    "eslint": "^10.15.0",
+    "eslint-plugin-import-x": "^4.18.1",
+    "eslint-plugin-package-json": "^1.14.0",
+    "globals": "^17.14.0",
+    "lint-staged": "^17.6.1",
+    "prettier": "^3.10.1",
+    "simple-git-hooks": "^2.14.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

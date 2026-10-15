@@ -1,0 +1,33 @@
+# Contribution Policy for MMM-JellyfinNowPlaying
+
+Thanks for contributing to MMM-JellyfinNowPlaying!
+
+We hold our code to a a set of standards, and these standards are documented below.
+
+## Install Development Packages
+
+Run `npm install` since the normal installation instructions do not install the development packages.
+
+## Developer Commands
+
+- `npm install` - Install all dependencies including development dependencies
+- `node --run lint` - Run linting and formatter checks
+- `node --run lint:fix` - Fix linting and formatter issues
+- `node --run release` - Create a new release (Bumps version, creates changelog, commits, tags)
+- `node --run test` - Run linting and formatter checks
+
+## Linters
+
+[Prettier](https://prettier.io) used for automatic linting of files which has ESLint bundled for CSS, JS, and Markdown files.
+
+Configuration for Prettier is in `prettier.config.mjs` and `.prettierignore`. ESlint configuration is in `eslint.config.mjs`.
+
+To run automatic linting, use `node --run lint:fix`.
+
+## Changelog and Release Notes
+
+Changelog and release notes are automatically generated from commit messages using the configuration in `changelog.config.js`. Follow the [Conventional Commits](https://www.conventionalcommits.org/) specification when writing commit messages to ensure they are included in the changelog.
+
+## Submitting Issues
+
+Please refer to the [Bug Report](/.github/ISSUE_TEMPLATE/bug_report.md) or [Feature Request](/.github/ISSUE_TEMPLATE/feature_request.md) Issue templates before [submitting an issue](issues).

@@ -1,0 +1,203 @@
+{
+  "type": "object",
+  "properties": {
+    "serverUrl": {
+      "type": "string",
+      "default": "http://localhost:8096",
+      "description": "Jellyfin base URL (http:// or https://)"
+    },
+    "apiKey": {
+      "type": "string",
+      "default": "",
+      "description": "API key (Dashboard > API Keys). Takes priority over username and password; use an admin key to see all user sessions"
+    },
+    "username": {
+      "type": "string",
+      "default": "",
+      "description": "Jellyfin username, used when no apiKey is set"
+    },
+    "password": {
+      "type": "string",
+      "default": "",
+      "description": "Jellyfin password, used with username when no apiKey is set"
+    },
+    "useWebSocket": {
+      "type": "boolean",
+      "default": true,
+      "description": "Live updates via the Jellyfin WebSocket, falling back to polling"
+    },
+    "stoppedDisplaySeconds": {
+      "type": "integer",
+      "default": 10,
+      "minimum": 0,
+      "maximum": 3600,
+      "description": "Seconds a stopped session stays visible (0 disables)"
+    },
+    "updateInterval": {
+      "type": "integer",
+      "default": 10,
+      "minimum": 5,
+      "maximum": 3600,
+      "description": "Seconds between polls (used when the WebSocket is unavailable)"
+    },
+    "showUserAvatar": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show the user avatar (initials when there is no picture)"
+    },
+    "showUserName": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show the user name"
+    },
+    "showDeviceIcon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show the device icon"
+    },
+    "showDeviceName": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show the device name"
+    },
+    "showStatusIcon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show the playing/paused/stopped icon"
+    },
+    "showLocationIcon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show the local/remote icon"
+    },
+    "showProgressBar": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show the progress bar"
+    },
+    "showPoster": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show the poster or album cover"
+    },
+    "showTranscode": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show a badge over the poster while transcoding (requires showPoster)"
+    },
+    "showMultipleUsers": {
+      "type": "boolean",
+      "default": true,
+      "description": "Show all sessions, otherwise only the first"
+    },
+    "hideWhenIdle": {
+      "type": "boolean",
+      "default": true,
+      "description": "Hide the module when nothing is playing"
+    },
+    "fontSize": {
+      "type": "string",
+      "default": "small",
+      "description": "Base font size, using MagicMirror's size classes",
+      "enum": ["xsmall", "small", "medium", "large", "xlarge"]
+    },
+    "titleFontSize": {
+      "type": "string",
+      "default": "1em",
+      "description": "Title font size (any CSS font-size)"
+    },
+    "textFontSize": {
+      "type": "string",
+      "default": "0.75em",
+      "description": "Subtitle and other text font size (any CSS font-size)"
+    },
+    "posterWidth": {
+      "type": "string",
+      "default": "3.2em",
+      "description": "Poster width (any CSS length); album covers are 1.5x this"
+    },
+    "accentColor": {
+      "type": "string",
+      "default": "#00a4dc",
+      "description": "Accent color (any CSS color)"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "rgba(255,255,255,0.06)",
+      "description": "Card background color (any CSS color)"
+    },
+    "playingColor": {
+      "type": "string",
+      "default": "#3fb950",
+      "description": "Playing state color (any CSS color)"
+    },
+    "pausedColor": {
+      "type": "string",
+      "default": "#f0b429",
+      "description": "Paused state color (any CSS color)"
+    },
+    "stoppedColor": {
+      "type": "string",
+      "default": "#e5534b",
+      "description": "Stopped state color (any CSS color)"
+    },
+    "headerTemplate": {
+      "type": "string",
+      "default": "{header_text} ({play_count})",
+      "description": "Header when there are streams. Supports {header_text}, {play_count}, {user_count}"
+    },
+    "headerTemplateZero": {
+      "type": "string",
+      "default": "{header_text}",
+      "description": "Header when there are no streams. Supports {header_text}, {play_count}, {user_count}"
+    },
+    "playbackLocation": {
+      "type": "string",
+      "default": "all",
+      "description": "Show local, remote, or all sessions",
+      "enum": ["all", "local", "remote"]
+    },
+    "mediaTypes": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "string",
+        "enum": ["movie", "series", "music", "other"]
+      },
+      "description": "Media types to filter on (empty means all)"
+    },
+    "mediaTypeFilterMode": {
+      "type": "string",
+      "default": "allow",
+      "description": "Treat mediaTypes as an allow or block list",
+      "enum": ["allow", "block"]
+    },
+    "users": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "description": "Jellyfin usernames to filter on (case-insensitive)"
+    },
+    "userFilterMode": {
+      "type": "string",
+      "default": "allow",
+      "description": "Treat users as an allow or block list",
+      "enum": ["allow", "block"]
+    },
+    "userMapping": {
+      "type": "object",
+      "default": {},
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Map a Jellyfin username to a display name"
+    },
+    "debugSessionData": {
+      "type": "boolean",
+      "default": false,
+      "description": "Log the session data (very noisy; also needs MagicMirror debug logging)"
+    }
+  }
+}
