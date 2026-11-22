@@ -64,13 +64,13 @@ test("network errors classified as NETWORK", () => {
 
 test("fetchImage sends auth header", async () => {
   let seen;
-  const client = new JellyfinClient({serverUrl: "http://x", apiKey: "k"}, {sdk: fakeSdk(),
-    /* eslint-disable id-length */
-    fetch: (u, o) => {
-      seen = {u, o};
-      return Promise.resolve({ok: true});
-    }});
-    /* eslint-enable id-length */
+  /* eslint-disable id-length */
+  const client = new JellyfinClient({serverUrl: "http://x", apiKey: "k"}, {sdk: fakeSdk(), fetch: (u, o) => {
+    seen = {u, o};
+    return Promise.resolve({ok: true});
+  }});
+  /* eslint-enable id-length */
+
   await client.fetchImage("/Items/abc/Images/Primary", 200);
   assert.match(seen.u, /maxWidth=200/u);
   assert.match(seen.o.headers.Authorization, /Token="k"/u);
