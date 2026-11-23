@@ -1,6 +1,6 @@
 {
   "name": "mmm-jellyfinnowplaying",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A now-playing module for MagicMirror² powered by Jellyfin.",
   "keywords": [
     "MagicMirror",
