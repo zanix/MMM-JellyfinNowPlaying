@@ -86,7 +86,7 @@ npm ci --omit=dev --ignore-scripts
 > You can use a specific version by checking out a tag or commit after cloning. For example, to use `v1.0.0`:
 >
 > ```bash
-> git checkout v1.0.0
+> git switch -d v1.0.0
 > ```
 
 ## Update
@@ -167,7 +167,7 @@ Here is an example of an entry in `config.js`.
   config: {
     serverUrl: "http://192.168.1.10:8096",
     apiKey: "YOUR_API_KEY",   // Dashboard → API Keys (admin user recommended to see all user sessions)
-    // or: username: "user", password: "pass" (ignored when apiKey is set)
+    // username: "user", password: "pass", // or user/pass (ignored when apiKey is set)
     userMapping: { "jfuser": "Dad" }
   }
 }
